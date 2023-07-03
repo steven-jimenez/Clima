@@ -1,0 +1,145 @@
+*{
+margin:0;
+}
+main{
+    background-color: rgb(14, 14, 31);
+    color:white;
+    padding: 0;
+    margin: 0;
+    position: relative;
+
+}
+
+.principal_page{
+    background-color: rgb(30, 32, 49);
+    width: 35%;
+    height: 1000px;
+
+      
+}
+
+.botones_principal{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    
+ }
+ .btn1{
+    background-color: gray;
+    border: none;
+    color:white;
+    font-weight: bold;
+    padding: 10px;
+    
+ }
+
+ .btn2 {
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    color: white;
+    border: none;
+    
+ }
+
+ .img_de_temp{
+    background-image: url(../public/Cloud-background.png) ;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 295px;
+ }
+
+
+ .img_de_temp::before{
+    content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(30, 32, 49, 0.842);
+ }
+
+ .img_de_temp > img{
+   position: absolute;
+   display: flex;
+   margin-left: 155px;
+   margin-top: 30px;
+   z-index: 999;
+ }
+
+ .tempBtn{
+   display: flex;
+   margin-left: 77rem;
+   margin-top: 2rem;
+   margin-right: 2rem;
+   gap: 1rem;
+   position: absolute;
+ }
+
+ .tempBtn > button {
+   border: none;
+   border-radius: 35px;
+   padding: 10px ;
+   font-weight: bold;
+ }
+
+ .tempBtn button.active {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.week{
+   display: flex;
+   margin-left: 37rem;
+   margin-top: 8rem;
+   margin-right: 2rem;
+   gap: 1rem;
+   position: absolute;
+   
+   
+}
+
+
+.cardsweek{
+   width:120px;
+   height:180px;
+   background-color: rgb(43, 45, 61);
+}
+
+
+.todays{
+   display: flex;
+   margin-left: 37rem;
+   margin-top: 23rem;
+   margin-right: 2rem;
+   gap: 1rem;
+   position: absolute;
+}
+
+.infoCards{
+   display: flex;
+   margin-left: 37rem;
+   margin-top: 26rem;
+   margin-right: 2rem;
+   gap: 3rem;
+   position: absolute;
+}
+
+.infoCards2{
+   display: flex;
+   margin-left: 37rem;
+   margin-top: 40rem;
+   margin-right: 2rem;
+   gap: 3rem;
+   position: absolute;
+}
+
+
+.info{
+   width:300px;
+   height:180px;
+   background-color: rgb(43, 45, 61);
+}
