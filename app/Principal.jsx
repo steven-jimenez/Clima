@@ -1,13 +1,7 @@
 "use client";
-import {Raleway} from '@next/font/google'
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
-
-const font = Raleway({
-weight: ["400", "700"]
-});
 
 export default function Principal() {
   const [clima, setClima] = useState([]);
@@ -15,7 +9,7 @@ export default function Principal() {
   const getClima = () => {
     axios
       .get(
-        "https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&units=metric&appid=72ad3de835c66335bdf228f03b0406c0"
+        "https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&units=metric&date={date}&appid=72ad3de835c66335bdf228f03b0406c0"
       )
       .then((res) => setClima(res.data))
       .catch((err) => console.error(err));
@@ -77,6 +71,33 @@ export default function Principal() {
     }
   };
 
+  const getDescription = () => {
+    if (
+      clima &&
+      clima.current &&
+      clima.current.weather &&
+      clima.current.weather[0]
+    ) {
+      return clima.current.weather[0].description;
+    } else {
+      return "";
+    }
+  };
+
+  const getCurrentDate = () => {
+    const date = new Date();
+    const options = { weekday: "long", month: "long", day: "numeric" };
+    return date.toLocaleDateString(undefined, options);
+  };
+
+  const getTimezone = () => {
+    if (clima && clima.timezone) {
+      return clima.timezone;
+    } else {
+      return "";
+    }
+  };
+
   return (
     <main className="principal_page">
       <div className="botones_principal">
@@ -100,13 +121,45 @@ export default function Principal() {
       <div className="img_de_temp">
         <Image
           src={getClimaImage()}
-          width={180}
-          height={180}
+          width={200}
+          height={200}
           alt="clima image"
         />
       </div>
 
-      <div className="tempPrincipal">{getTemperature()}°C</div>
+      <div className="tempPrincipal">
+        <span>
+          {getTemperature()}
+          <p>°C</p>
+        </span>
+      </div>
+
+      <div className="descripcion">
+        <span className="prDescripcion">{getDescription()}</span>
+      </div>
+
+      <div className="fecha">
+        <span>
+          Hoy <p>/</p>
+          {getCurrentDate()}
+        </span>
+      </div>
+
+      <div className="location">
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            fill="currentColor"
+            className="bi bi-geo-alt-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+          </svg>
+          {getTimezone()}
+        </span>
+      </div>
     </main>
   );
 }

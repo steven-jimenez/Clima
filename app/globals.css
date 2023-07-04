@@ -2,7 +2,7 @@
 margin:0;
 }
 main{
-    background-color: rgb(14, 14, 31);
+    background-color: #100E1D;
     color:white;
     padding: 0;
     margin: 0;
@@ -11,7 +11,7 @@ main{
 }
 
 .principal_page{
-    background-color: rgb(30, 32, 49);
+    background-color: #1E213A;
     width: 35%;
     height: 1000px;
 
@@ -59,15 +59,72 @@ main{
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(30, 32, 49, 0.842);
+  background-color: #1e213ab9;
  }
 
  .img_de_temp > img{
    position: absolute;
    display: flex;
    margin-left: 155px;
-   margin-top: 30px;
+   margin-top: 35px;
    z-index: 999;
+ }
+
+ .tempPrincipal{
+   display: flex;
+   justify-content: center;
+   font-weight: bold;
+ }
+
+ .tempPrincipal > span{
+   font-size: 120px;
+   margin-top: 3rem;
+   display: flex;
+ }
+ .tempPrincipal > span > p{
+   font-size: 60px;
+   display: flex;
+   align-items: end;
+   color: #88869D;
+ }
+
+ .prDescripcion{
+   font-size: 30px;
+   display: flex;
+   justify-content: center;
+   color: #88869D;
+   margin-top: 5rem;
+   font-weight: bold;
+ }
+
+ .fecha{
+    font-size: 17px;
+   display: flex;
+   justify-content: center;
+   color: #88869D;
+   margin-top: 8rem;
+   font-weight: bold;
+ }
+
+ .fecha > span{
+   display: flex;
+   gap:1rem;
+ }
+
+ .location{
+   font-size: 17px;
+   display: flex;
+   justify-content: center;
+   color: #88869D;
+   margin-top: 2rem;
+   font-weight: bold;
+   
+ }
+
+ .location > span {
+   display: flex;
+   gap:0.4rem;
+   color: #88869D;
  }
 
  .tempBtn{
@@ -106,7 +163,7 @@ main{
 .cardsweek{
    width:120px;
    height:180px;
-   background-color: rgb(43, 45, 61);
+   background-color: #1E213A;
 }
 
 
@@ -141,5 +198,5 @@ main{
 .info{
    width:300px;
    height:180px;
-   background-color: rgb(43, 45, 61);
+   background-color: #1E213A;
 }
