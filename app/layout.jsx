@@ -1,7 +1,9 @@
 import './globals.css'
 import { Raleway } from 'next/font/google'
 
-const raleway = Raleway({ subsets: ['latin']
+const raleway = Raleway({ 
+  weight:'400',
+  subsets: ['latin']
 
 })
 

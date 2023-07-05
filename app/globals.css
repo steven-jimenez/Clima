@@ -1,202 +1,394 @@
-*{
-margin:0;
-}
-main{
-    background-color: #100E1D;
-    color:white;
-    padding: 0;
-    margin: 0;
-    position: relative;
-
+* {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
 }
 
-.principal_page{
-    background-color: #1E213A;
-    width: 35%;
-    height: 1000px;
-
-      
+main > section {
+  display: flex;
+  background-color: #100E1D;
+  color: white;
+  padding: 0;
+  margin: 0;
 }
 
-.botones_principal{
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem;
-    
- }
- .btn1{
-    background-color: gray;
-    border: none;
-    color:white;
-    font-weight: bold;
-    padding: 10px;
-    
- }
+.principal {
+  width: 35%;
+}
 
- .btn2 {
-    border-radius: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: gray;
-    color: white;
-    border: none;
-    
- }
+.secundario {
+  display: flex;
+  width: 900px;
+}
 
- .img_de_temp{
-    background-image: url(../public/Cloud-background.png) ;
-    background-size: cover;
-    position: relative;
-    width: 100%;
-    height: 295px;
- }
+.principal_page {
+  background-color: #1E213A;
+  width: 100%;
+  height: 1000px;
+}
 
+.botones_principal {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
 
- .img_de_temp::before{
-    content: "";
+.btn1 {
+  background-color: gray;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.btn2 {
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  color: white;
+  border: none;
+}
+
+.img_de_temp {
+  background-image: url(../public/Cloud-background.png);
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 295px;
+}
+
+.img_de_temp::before {
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: #1e213ab9;
- }
+}
 
- .img_de_temp > img{
-   position: absolute;
-   display: flex;
-   margin-left: 155px;
-   margin-top: 35px;
-   z-index: 999;
- }
+.img_de_temp > img {
+  position: absolute;
+  display: flex;
+  margin-left: 155px;
+  margin-top: 35px;
+  z-index: 999;
+}
 
- .tempPrincipal{
-   display: flex;
-   justify-content: center;
-   font-weight: bold;
- }
+.tempPrincipal {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
 
- .tempPrincipal > span{
-   font-size: 120px;
-   margin-top: 3rem;
-   display: flex;
- }
- .tempPrincipal > span > p{
-   font-size: 60px;
-   display: flex;
-   align-items: end;
-   color: #88869D;
- }
+.tempPrincipal > span {
+  font-size: 120px;
+  margin-top: 3rem;
+  display: flex;
+}
 
- .prDescripcion{
-   font-size: 30px;
-   display: flex;
-   justify-content: center;
-   color: #88869D;
-   margin-top: 5rem;
-   font-weight: bold;
- }
+.tempPrincipal > span > p {
+  font-size: 60px;
+  display: flex;
+  align-items: end;
+  color: #88869D;
+}
 
- .fecha{
-    font-size: 17px;
-   display: flex;
-   justify-content: center;
-   color: #88869D;
-   margin-top: 8rem;
-   font-weight: bold;
- }
+.prDescripcion {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  color: #88869D;
+  margin-top: 5rem;
+  font-weight: bold;
+}
 
- .fecha > span{
-   display: flex;
-   gap:1rem;
- }
+.fecha {
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  color: #88869D;
+  margin-top: 8rem;
+  font-weight: bold;
+}
 
- .location{
-   font-size: 17px;
-   display: flex;
-   justify-content: center;
-   color: #88869D;
-   margin-top: 2rem;
-   font-weight: bold;
-   
- }
+.fecha > span {
+  display: flex;
+  gap: 1rem;
+}
 
- .location > span {
-   display: flex;
-   gap:0.4rem;
-   color: #88869D;
- }
+.location {
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  color: #88869D;
+  margin-top: 2rem;
+  font-weight: bold;
+}
 
- .tempBtn{
-   display: flex;
-   margin-left: 77rem;
-   margin-top: 2rem;
-   margin-right: 2rem;
-   gap: 1rem;
-   position: absolute;
- }
+.location > span {
+  display: flex;
+  gap: 0.4rem;
+  color: #88869D;
+}
 
- .tempBtn > button {
-   border: none;
-   border-radius: 35px;
-   padding: 10px ;
-   font-weight: bold;
- }
+.tempBtn {
+  display: flex;
+  justify-content: end;
+  margin-top: 2rem;
+  padding-right: 2rem;
+  gap: 1rem;
+}
 
- .tempBtn button.active {
+.tempBtn > button {
+  border: none;
+  border-radius: 35px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.tempBtn button.active {
   background-color: #ff0000;
   color: #ffffff;
 }
 
-.week{
-   display: flex;
-   margin-left: 37rem;
-   margin-top: 8rem;
-   margin-right: 2rem;
-   gap: 1rem;
-   position: absolute;
-   
-   
+.week {
+  display: flex;
+  margin-top: 3rem;
+  margin-left: 10rem;
+  gap: 1rem;
+}
+
+.CardsW {
+  width: 120px;
+  height: 180px;
+  background-color: #1E213A;
+}
+
+.fechaCard {
+  color: #E7E7EB;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.imageCard {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.tempCard {
+  display: flex;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.tempCard > span {
+  display: flex;
+}
+
+.tempCard > span > p {
+  display: flex;
+  align-items: end;
+}
+
+.todays {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 6rem;
+  margin-left: 10rem;
+}
+
+.infoCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  margin-left: 5rem;
+}
+
+.infoCards2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  margin-left: 5rem;
+}
+
+.info {
+  width: 300px;
+  height: 180px;
+  background-color: #1E213A;
+}
+
+.info > p {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  font-size: large;
+}
+
+.info > .speed {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
+.flecha {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
+.flecha > svg {
+  fill: #E7E7EB;
+}
+
+.flecha > p {
+  display: flex;
+  align-items: end;
+}
+
+.info > .visibility {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-size: 35px;
+  gap: 1rem;
+  font-weight: bolder;
+}
+
+.visibility > p {
+  font-weight: normal;
+}
+
+.humidity {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.humidity > p {
+  font-weight: none;
+}
+
+.barra {
+  width: 90%;
+  height: 10px;
+  border-radius: 15px;
+  background-color: #E7E7EB;
+  display: flex;
+}
+
+.progreso {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.porcentaje {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0px;
+  padding-right: 23px;
+}
+
+@media (max-width: 900px) {
+  main > section {
+    flex-wrap: wrap;
+  }
+
+  .principal {
+    width: 100%;
+  }
+
+  .secundario {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .principal_page {
+    height: auto;
+  }
+
+  .img_de_temp {
+    height: 200px;
+  }
+
+  .img_de_temp > img {
+    margin-left: 60px;
+    margin-top: -15px;
+  }
+
+  .tempPrincipal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tempPrincipal > span {
+    font-size: 80px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .tempPrincipal > span > p {
+    font-size: 40px;
+    margin-top: 0;
+  }
+
+  .prDescripcion {
+    font-size: 20px;
+    margin-top: 3rem;
+  }
+
+  .fecha {
+    font-size: 14px;
+    margin-top: 5rem;
+  }
+
+  .fecha > span {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .location {
+    font-size: 14px;
+    margin-top: 2rem;
+  }
+
+  .tempBtn {
+    display: none;
+  }
+
+  .week {
+    width:100%;
+    display: flex;
+    margin-left: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .todays {
+    margin-left: 0;
+  }
+
+  .infoCards,
+  .infoCards2 {
+    margin-left: 0;
+    justify-content: center;
+  }
 }
 
 
-.cardsweek{
-   width:120px;
-   height:180px;
-   background-color: #1E213A;
-}
-
-
-.todays{
-   display: flex;
-   margin-left: 37rem;
-   margin-top: 23rem;
-   margin-right: 2rem;
-   gap: 1rem;
-   position: absolute;
-}
-
-.infoCards{
-   display: flex;
-   margin-left: 37rem;
-   margin-top: 26rem;
-   margin-right: 2rem;
-   gap: 3rem;
-   position: absolute;
-}
-
-.infoCards2{
-   display: flex;
-   margin-left: 37rem;
-   margin-top: 40rem;
-   margin-right: 2rem;
-   gap: 3rem;
-   position: absolute;
-}
-
-
-.info{
-   width:300px;
-   height:180px;
-   background-color: #1E213A;
-}

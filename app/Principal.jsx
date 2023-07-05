@@ -3,6 +3,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
+
+
 export default function Principal() {
   const [clima, setClima] = useState([]);
 
@@ -98,10 +100,12 @@ export default function Principal() {
     }
   };
 
+  
+
   return (
     <main className="principal_page">
       <div className="botones_principal">
-        <button className="btn1">Search for places</button>
+        <button className="btn1"> Search for places </button>
         <button className="btn2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
