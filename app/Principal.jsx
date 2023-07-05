@@ -138,7 +138,7 @@ export default function Principal() {
       </div>
 
       <div className="descripcion">
-        <span className="prDescripcion">{getDescription()}</span>
+         <span className="prDescripcion">{getDescription().replace("'", "&apos;")}</span>
       </div>
 
       <div className="fecha">
