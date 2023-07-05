@@ -100,7 +100,6 @@ export default function Principal() {
     }
   };
 
-  
 
   return (
     <main className="principal_page">
