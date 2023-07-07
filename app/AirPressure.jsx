@@ -5,7 +5,7 @@ export default function AirPressure() {
   const [pressure, setPressure] = useState(null);
 
   useEffect(() => {
-    const getPressureData = async () => {
+    const getPressureData = async () => { // se usa para obtener la presion del aire.
       try {
         const response = await axios.get(
           'https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&units=metric&appid=72ad3de835c66335bdf228f03b0406c0'
@@ -20,7 +20,7 @@ export default function AirPressure() {
     getPressureData();
   }, []);
 
-  const formatPressure = (pressure) => {
+  const formatPressure = (pressure) => {// se formatea el valor de la presion del aire para mostrarlo redondeado.
     if (pressure !== null) {
       return pressure.toFixed(1);
     }

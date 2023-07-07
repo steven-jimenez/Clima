@@ -5,7 +5,7 @@ export default function Humedad() {
   const [humidity, setHumidity] = useState(null);
 
   useEffect(() => {
-    const getHumidityData = async () => {
+    const getHumidityData = async () => { // se usa para obtener la humedad.
       try {
         const response = await axios.get(
           'https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&units=metric&appid=72ad3de835c66335bdf228f03b0406c0'

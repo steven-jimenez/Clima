@@ -2,17 +2,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Wind() {
+export default function Wind() { 
   const [windSpeed, setWindSpeed] = useState(null);
   const [windDeg, setWindDeg] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { // se obtiene la velocidad y direccion del viento.
     const getWindData = async () => {
       try {
         const response = await axios.get(
           "https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&units=imperial&appid=72ad3de835c66335bdf228f03b0406c0"
         );
-        const { current } = response.data;
+        const { current } = response.data; // esta es para redondear la respuesta obtenida.
         setWindSpeed(Math.round(current.wind_speed));
         setWindDeg(current.wind_deg);
       } catch (error) {
@@ -23,7 +23,7 @@ export default function Wind() {
     getWindData();
   }, []);
 
-  const rotateSVG = {
+  const rotateSVG = { // se usa para rotar la flechita.
     transform: `rotate(${windDeg}deg)`,
   };
 

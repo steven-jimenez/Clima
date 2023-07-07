@@ -8,11 +8,11 @@ export default function CardsWeek({ day }) {
   const [city, setCity] = useState("");
   const API_KEY = "72ad3de835c66335bdf228f03b0406c0";
   useEffect(() => {
-    const getClima = () => {
+    const getClima = () => {  // esta es para obtener los datos de los proximos dias y usa props "day" para identificar que dia.
       const tomorrow = new Date();
       tomorrow.setDate(tomorrow.getDate() + day);
 
-      const tomorrowDateString = tomorrow.toLocaleDateString("en-US", {
+      const tomorrowDateString = tomorrow.toLocaleDateString("en-US", { // esta es para obtener la fecha.
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
@@ -23,7 +23,7 @@ export default function CardsWeek({ day }) {
           `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=metric&exclude=current,minutely,hourly,alerts&appid=72ad3de835c66335bdf228f03b0406c0`
         )
         .then((res) => {
-          const weatherData = res.data.daily[day];
+          const weatherData = res.data.daily[day]; // aqui se obtienen los datos de la API y usa la props "day".
           setClima(weatherData);
         })
         .catch((err) => console.error(err));
@@ -71,7 +71,7 @@ export default function CardsWeek({ day }) {
     }
   };
 
-  const getTemperature = () => {
+  const getTemperature = () => { // se obtiene la temperatura con la prop "day".
     if (clima && clima.temp && clima.temp.day) {
       return Math.round(clima.temp.day);
     } else {
@@ -79,7 +79,7 @@ export default function CardsWeek({ day }) {
     }
   };
 
-  const getFormattedDate = (offset) => {
+  const getFormattedDate = (offset) => { // se usa para formatear la fecha apartir de la prop.
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + offset);
 
