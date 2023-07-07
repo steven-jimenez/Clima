@@ -5,7 +5,8 @@ import axios from "axios";
 
 export default function CardsWeek({ day }) {
   const [clima, setClima] = useState(null);
-
+  const [city, setCity] = useState("");
+  const API_KEY = "72ad3de835c66335bdf228f03b0406c0";
   useEffect(() => {
     const getClima = () => {
       const tomorrow = new Date();

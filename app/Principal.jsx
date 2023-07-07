@@ -3,32 +3,27 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
-
-
 export default function Principal() {
-  const [clima, setClima] = useState([]);
+  const [clima, setClima] = useState(null);
+  const [city, setCity] = useState("");
+  const API_KEY = "72ad3de835c66335bdf228f03b0406c0";
 
   const getClima = () => {
     axios
       .get(
-        "https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&units=metric&date={date}&appid=72ad3de835c66335bdf228f03b0406c0"
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=sp, es&appid=${API_KEY}`
       )
       .then((res) => setClima(res.data))
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => {
-    getClima();
-  }, []);
-
   const getClimaImage = () => {
     if (
       clima &&
-      clima.current &&
-      clima.current.weather &&
-      clima.current.weather[0]
+      clima.weather &&
+      clima.weather.length > 0
     ) {
-      const iconCode = clima.current.weather[0].icon;
+      const iconCode = clima.weather[0].icon;
       switch (iconCode) {
         case "01d":
           return "/Clear.png";
@@ -66,8 +61,8 @@ export default function Principal() {
   };
 
   const getTemperature = () => {
-    if (clima && clima.current && clima.current.temp) {
-      return Math.round(clima.current.temp);
+    if (clima && clima.main && clima.main.temp) {
+      return Math.round(clima.main.temp);
     } else {
       return "";
     }
@@ -76,11 +71,10 @@ export default function Principal() {
   const getDescription = () => {
     if (
       clima &&
-      clima.current &&
-      clima.current.weather &&
-      clima.current.weather[0]
+      clima.weather &&
+      clima.weather.length > 0
     ) {
-      return clima.current.weather[0].description;
+      return clima.weather[0].description;
     } else {
       return "";
     }
@@ -93,32 +87,60 @@ export default function Principal() {
   };
 
   const getTimezone = () => {
-    if (clima && clima.timezone) {
-      return clima.timezone;
+    if (clima && clima.name) {
+      return clima.name;
     } else {
       return "";
     }
   };
 
+  const handleSearch = () => {
+    getClima();
+  };
+
+  const handleSearchToggle = () => {
+    setSearchVisible(!searchVisible);
+  };
+
+  const [searchVisible, setSearchVisible] = useState(false);
 
   return (
     <main className="principal_page">
       <div className="botones_principal">
-        <button className="btn1"> Search for places </button>
+        <button className="btn1" onClick={handleSearchToggle}>
+          Search for places
+        </button>
+        {searchVisible && (
+          <div className="search">
+            <div>
+              <div className="close" onClick={handleSearchToggle}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  className="bi bi-x"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+              </div>
+              <input
+                className="input"
+                placeholder=" search location"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+              <button className="btnSearch" onClick={handleSearch}>
+                <b>Search</b>
+              </button>
+            </div>
+          </div>
+        )}
         <button className="btn2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="currentColor"
-            className="bi bi-geo"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fillRule="evenodd"
-              d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465s-2.462-.172-3.34-.465c-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"
-            />
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="30">
+            <path d="M450-42v-75q-137-14-228-105T117-450H42v-60h75q14-137 105-228t228-105v-75h60v75q137 14 228 105t105 228h75v60h-75q-14 137-105 228T510-117v75h-60Zm30-134q125 0 214.5-89.5T784-480q0-125-89.5-214.5T480-784q-125 0-214.5 89.5T176-480q0 125 89.5 214.5T480-176Zm0-154q-63 0-106.5-43.5T330-480q0-63 43.5-106.5T480-630q63 0 106.5 43.5T630-480q0 63-43.5 106.5T480-330Zm0-60q38 0 64-26t26-64q0-38-26-64t-64-26q-38 0-64 26t-26 64q0 38 26 64t64 26Zm0-90Z" /></svg>
+
         </button>
       </div>
       <div className="img_de_temp">

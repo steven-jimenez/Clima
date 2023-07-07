@@ -29,7 +29,7 @@ main > section {
 .botones_principal {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  
 }
 
 .btn1 {
@@ -38,15 +38,65 @@ main > section {
   color: white;
   font-weight: bold;
   padding: 10px;
+  margin-top: 2rem;
+  margin-left: 2rem;
 }
+
+.search{
+ position: absolute;
+ width:480px;
+ height: 1000px;
+ background-color:#1E213A ;
+ display: flex;
+ z-index: 999;
+  
+}
+
+.search > div{
+padding: 2rem 2rem;
+}
+
+.search > div > input {
+  margin-right: 1rem;
+  height: 48px;
+  width: 270px;
+  background-color: transparent;
+  border: 0.5px solid;
+  border-color: #E7E7EB;
+  color: #88869D;
+}
+
+.close{
+ margin-left: 23rem;
+ margin-bottom: 1rem;
+}
+
+.btnSearch {
+  height: 52px;
+  width: 100px;
+  background-color: #3C47E9;
+  color: #E7E7EB;
+  border: none;
+}
+
+
 
 .btn2 {
   border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   background-color: gray;
   color: white;
   border: none;
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.btn2 > svg {
+  fill:#E7E7EB;
 }
 
 .img_de_temp {
@@ -72,7 +122,7 @@ main > section {
   display: flex;
   margin-left: 155px;
   margin-top: 35px;
-  z-index: 999;
+  z-index: 800;
 }
 
 .tempPrincipal {
